@@ -95,6 +95,7 @@
   @media (max-width: 640px) {
     .profile-banner { flex-direction: column; text-align: center; }
     .contact-list-banner { align-items: center; }
+    .contact-list-banner .icon { display: none; }
   }
 
   /* SIDEBAR */
@@ -186,15 +187,15 @@
     .page { grid-template-columns: 1fr; }
     aside.sidebar { position: static; }
 
-    /* Reorder sections for mobile: Achievement Award, Summary, Key Achievements, Experience,
-       Technical Proficiencies, Certifications, Education, Social Achievement */
+    /* Reorder sections for mobile: Achievement Award, Summary, Key Achievements,
+       Technical Proficiencies, Licenses & Certifications, Experience, Education, Social Achievement */
     aside.sidebar, main.content { display: contents; }
     #award { order: 1; }
     #summary { order: 2; }
     #achievements { order: 3; }
-    #experience { order: 4; }
-    #skills { order: 5; }
-    #certifications { order: 6; }
+    #skills { order: 4; }
+    #certifications { order: 5; }
+    #experience { order: 6; }
     #education { order: 7; }
     #social { order: 8; }
 
@@ -363,6 +364,18 @@
       </ul>
     </section>
 
+    <section id="achievements" class="card">
+      <h2 class="section-title">Key Achievements</h2>
+      <ul>
+        <li>Developed <span class="hl-warm">15+ API automations</span>, saving an estimated 6+ hours/week and improving tool productivity and efficiency (Capgemini, 2024–Present).</li>
+        <li>Built <span class="hl-warm">10+ workflow automation solutions</span>, reducing manual effort by an estimated 30% (Capgemini, 2022–2023).</li>
+        <li>Designed a custom <span class="hl-warm">Postman-based automation</span> to migrate Adobe Campaign packages across 3 environments (Dev/Stage/Prod), cutting migration time from ~4 hours to under 20 minutes.</li>
+        <li>Implemented a <span class="hl-warm">Microsoft Teams webhook integration</span> via Postman, delivering real-time alerts to a 15+ member team.</li>
+        <li>Explored and demonstrated <span class="hl-warm">agentic AI workflows</span> connecting Claude Code, Zapier MCP, and Microsoft 365, automating 5+ routine communication tasks.</li>
+      </ul>
+      <p class="placeholder-note">Note: figures above are estimated impact — please verify and adjust before sharing this resume externally.</p>
+    </section>
+
     <section id="experience">
       <h2 class="section-title">Professional Experience</h2>
       <div class="job-list">
@@ -422,18 +435,6 @@
         </div>
 
       </div>
-    </section>
-
-    <section id="achievements" class="card">
-      <h2 class="section-title">Key Achievements</h2>
-      <ul>
-        <li>Developed <span class="hl-warm">15+ API automations</span>, saving an estimated 6+ hours/week and improving tool productivity and efficiency (Capgemini, 2024–Present).</li>
-        <li>Built <span class="hl-warm">10+ workflow automation solutions</span>, reducing manual effort by an estimated 30% (Capgemini, 2022–2023).</li>
-        <li>Designed a custom <span class="hl-warm">Postman-based automation</span> to migrate Adobe Campaign packages across 3 environments (Dev/Stage/Prod), cutting migration time from ~4 hours to under 20 minutes.</li>
-        <li>Implemented a <span class="hl-warm">Microsoft Teams webhook integration</span> via Postman, delivering real-time alerts to a 15+ member team.</li>
-        <li>Explored and demonstrated <span class="hl-warm">agentic AI workflows</span> connecting Claude Code, Zapier MCP, and Microsoft 365, automating 5+ routine communication tasks.</li>
-      </ul>
-      <p class="placeholder-note">Note: figures above are estimated impact — please verify and adjust before sharing this resume externally.</p>
     </section>
 
   </main>
