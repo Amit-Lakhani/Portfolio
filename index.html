@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amit Umedali Lakhani — Portfolio Resume</title>
+<style>
+  :root {
+    color-scheme: light;
+    --navy: #1b2a4e;
+    --accent: #2563eb;
+    --accent-warm: #c0392b;
+    --accent-soft: #eef2ff;
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --text: #232733;
+    --muted: #6b7280;
+    --border: #e6e9ef;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.62;
+    font-size: 15.5px;
+  }
+  a { color: inherit; text-decoration: none; }
+  ul { list-style: none; }
+
+  .hl { color: var(--accent); font-weight: 700; }
+  .hl-warm { color: var(--accent-warm); font-weight: 700; }
+
+  .container {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    gap: 28px;
+    align-items: start;
+    margin-top: 24px;
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.04), 0 2px 8px rgba(16,24,40,0.04);
+    padding: 28px 30px;
+  }
+
+  /* PROFILE BANNER — full-width, single column at top of page */
+  .profile-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+    color: #fff;
+    border-radius: 14px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.08), 0 6px 18px rgba(16,24,40,0.14);
+  }
+  .profile-banner .avatar {
+    width: 90px; height: 90px; border-radius: 50%; flex-shrink: 0;
+    background: rgba(255,255,255,0.16); border: 2px solid rgba(255,255,255,0.35);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 32px; font-weight: 700; color: #fff;
+  }
+  .profile-info { flex: 1; min-width: 220px; }
+  .profile-info h1 { font-size: 25px; color: #fff; font-weight: 700; line-height: 1.3; }
+  .profile-info .role { font-size: 17px; color: #dbe4ff; font-weight: 600; margin-top: 6px; }
+  .profile-info .grade { font-size: 14.5px; color: #b7c3e0; margin-top: 3px; }
+  .profile-info .total-exp {
+    display: inline-block; margin-top: 10px; font-size: 13px; font-weight: 700; color: #fff;
+    background: rgba(255,255,255,0.18); padding: 4px 12px; border-radius: 20px;
+  }
+
+  .contact-list-banner { display: flex; flex-direction: column; gap: 9px; }
+  .contact-list-banner li { display: flex; align-items: center; gap: 9px; font-size: 14.5px; color: #eef1fb; word-break: break-word; }
+  .contact-list-banner a:hover { text-decoration: underline; }
+  .contact-list-banner .icon {
+    width: 26px; height: 26px; border-radius: 7px; background: rgba(255,255,255,0.18); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-size: 12.5px; font-weight: 700; flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .profile-banner { flex-direction: column; text-align: center; }
+    .contact-list-banner { align-items: center; }
+  }
+
+  /* SIDEBAR */
+  aside.sidebar { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 20px; }
+
+  h3.card-title {
+    font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--navy);
+    font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;
+  }
+  h3.card-title::before { content: ""; width: 4px; height: 15px; background: var(--accent); border-radius: 2px; }
+
+  .info-block { margin-bottom: 15px; }
+  .info-block:last-child { margin-bottom: 0; }
+  .info-block h4 { font-size: 17px; color: var(--navy); font-weight: 700; margin-bottom: 4px; }
+  .info-block p { font-size: 14.5px; color: #444; }
+  .info-block p strong { color: var(--navy); font-weight: 700; }
+
+  /* MAIN */
+  main.content { display: flex; flex-direction: column; gap: 24px; }
+  section { scroll-margin-top: 24px; }
+  h2.section-title {
+    font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 18px;
+  }
+
+  #summary li { position: relative; padding-left: 22px; margin-bottom: 12px; font-size: 15.5px; color: #333; }
+  #summary li:last-child { margin-bottom: 0; }
+  #summary li::before { content: "—"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  /* EXPERIENCE — separate job cards */
+  .job-list { display: flex; flex-direction: column; gap: 16px; }
+  .job-card { padding: 20px 24px; }
+  .tl-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+  .tl-header h3 { font-size: 17px; color: var(--navy); font-weight: 700; }
+  .tl-dates {
+    font-size: 12.5px; color: var(--accent); font-weight: 700; white-space: nowrap;
+    background: var(--accent-soft); padding: 3px 11px; border-radius: 20px;
+  }
+  .tl-desc { font-size: 14.5px; color: var(--muted); margin-bottom: 9px; font-style: italic; }
+  .job-card ul li { position: relative; padding-left: 18px; font-size: 15.5px; color: #333; margin-bottom: 5px; }
+  .job-card ul li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+  .achievement {
+    margin-top: 9px; padding: 9px 13px; background: #f8fafc; border-left: 3px solid var(--accent);
+    font-size: 14.5px; color: #334; border-radius: 6px;
+  }
+  .achievement .hl-warm { color: var(--accent-warm); }
+
+  #achievements ul li { position: relative; padding-left: 24px; font-size: 15.5px; margin-bottom: 11px; }
+  #achievements ul li:last-child { margin-bottom: 0; }
+  #achievements ul li::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+  /* CERTIFICATIONS */
+  /* SKILLS (also used for Certifications groups) */
+  .skill-group { margin-bottom: 14px; }
+  .skill-group:last-child { margin-bottom: 0; }
+  .skill-group h4 { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); font-weight: 700; margin-bottom: 7px; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag-row.stacked { flex-direction: column; align-items: flex-start; }
+  .tag {
+    background: var(--accent-soft); color: var(--accent); font-size: 12.5px; font-weight: 700;
+    padding: 5px 11px; border-radius: 20px; white-space: nowrap;
+  }
+  .tag-row.stacked .tag { white-space: normal; width: 100%; }
+
+  footer {
+    background: var(--navy); color: #cbd5e1; text-align: center; padding: 26px 0; font-size: 14.5px;
+  }
+  footer strong { color: #fff; }
+  footer a:hover { color: #fff; text-decoration: underline; }
+
+  @media (max-width: 860px) {
+    .page { grid-template-columns: 1fr; }
+    aside.sidebar { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="profile-banner">
+    <div class="avatar">AL</div>
+    <div class="profile-info">
+      <h1>Amit Umedali Lakhani</h1>
+      <div class="role">Adobe Developer (API Automation)</div>
+      <div class="grade">Associate Consultant (B2)</div>
+      <div class="total-exp">8+ Years Experience</div>
+    </div>
+    <ul class="contact-list-banner">
+      <li><span class="icon">@</span> amit-umedali.lakhani@capgemini.com</li>
+      <li><span class="icon">☎</span> 8087575200</li>
+      <li><span class="icon">in</span> <a href="https://www.linkedin.com/in/lakhani-amit/" target="_blank" rel="noopener">linkedin.com/in/lakhani-amit</a></li>
+    </ul>
+  </header>
+
+<div class="page">
+
+  <aside class="sidebar">
+    <div class="card" id="skills">
+      <h3 class="card-title">Technical Proficiencies</h3>
+      <div class="skill-group">
+        <h4>Adobe Tools</h4>
+        <div class="tag-row">
+          <span class="tag">Adobe Campaign Classic</span>
+          <span class="tag">Adobe Campaign Standard</span>
+          <span class="tag">Adobe Journey Optimizer</span>
+          <span class="tag">Adobe Experience Platform</span>
+          <span class="tag">Adobe Analytics</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Methodologies</h4>
+        <div class="tag-row">
+          <span class="tag">Agile</span>
+          <span class="tag">Scrum</span>
+          <span class="tag">Waterfall</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Programming &amp; Web</h4>
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Platforms &amp; Tools</h4>
+        <div class="tag-row">
+          <span class="tag">Postman</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">AWS</span>
+          <span class="tag">VMware</span>
+          <span class="tag">SQL Server</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Project &amp; Analytics</h4>
+        <div class="tag-row">
+          <span class="tag">JIRA</span>
+          <span class="tag">Trello</span>
+          <span class="tag">Azure Boards</span>
+          <span class="tag">Tableau</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Splunk</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="certifications">
+      <h3 class="card-title">Licenses &amp; Certifications</h3>
+
+      <div class="skill-group">
+        <h4>Adobe</h4>
+        <div class="tag-row stacked">
+          <span class="tag">Adobe Certified Expert – Adobe Campaign Classic Developer</span>
+          <span class="tag">Adobe Certified Professional – Adobe Campaign Classic Developer</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>AI &amp; Data</h4>
+        <div class="tag-row stacked">
+          <span class="tag">Google AI Essentials</span>
+          <span class="tag">AI For Everyone</span>
+          <span class="tag">ChatGPT &amp; Zapier: Agentic AI for Everyone</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h4>Developer Tools</h4>
+        <div class="tag-row stacked">
+          <span class="tag">Learn Firebase</span>
+          <span class="tag">Postman API Fundamentals Student Expert</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Education</h3>
+      <div class="info-block">
+        <h4>B.Tech, Computer Science</h4>
+        <p>Modern College, Pune, India</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="card-title">Social Achievement</h3>
+      <div class="info-block">
+        <p><strong>Volunteer, Aga Khan Education Board</strong> — community service &amp; growth initiatives.</p>
+      </div>
+      <div class="info-block">
+        <p><strong>Member, Scout Team</strong> — collaboration with NGO organizations.</p>
+      </div>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section id="summary" class="card">
+      <h2 class="section-title">Summary</h2>
+      <ul>
+        <li><span class="hl">8+ years</span> in IT, including <span class="hl">3+ years</span> in Adobe-driven campaign management for a global fast-food chain client.</li>
+        <li>Hands-on with <span class="hl">Adobe Campaign Classic</span>, <span class="hl">Adobe Campaign Standard</span>, and <span class="hl">Adobe Journey Optimizer</span> — schema integration, dynamic rule sets.</li>
+        <li>Specialist in <span class="hl">API automation</span> using Postman &amp; Python across <span class="hl">Adobe Experience Platform</span> and Adobe Campaign tools.</li>
+        <li>Cross-functional collaborator with a background spanning IT infrastructure and on-site project management.</li>
+        <li>Skilled in <span class="hl">Agile</span>, <span class="hl">Scrum</span>, and <span class="hl">Waterfall</span> methodologies.</li>
+      </ul>
+    </section>
+
+    <section id="experience">
+      <h2 class="section-title">Professional Experience</h2>
+      <div class="job-list">
+
+        <div class="card job-card">
+          <div class="tl-header"><h3>Senior Developer — Capgemini</h3><span class="tl-dates">Jan 2024 – Present</span></div>
+          <div class="tl-desc">Client: fast-food chain running Adobe-driven, customer-targeted campaigns.</div>
+          <ul>
+            <li>Led <span class="hl">AJO</span> Data &amp; Decision Management: schema integration, dynamic rule sets.</li>
+            <li>Used <span class="hl">AEP</span> &amp; <span class="hl">Adobe Campaign Classic</span> for campaign management.</li>
+            <li>Built <span class="hl">API integrations</span> via Postman &amp; Python.</li>
+            <li>Partnered with Middleware &amp; QE teams to speed up delivery.</li>
+          </ul>
+          <div class="achievement"><span class="hl-warm">Achievement:</span> Built <span class="hl-warm">API automations</span> that boosted productivity &amp; efficiency.</div>
+        </div>
+
+        <div class="card job-card">
+          <div class="tl-header"><h3>Senior Developer — Capgemini</h3><span class="tl-dates">Jun 2022 – Dec 2023</span></div>
+          <div class="tl-desc">Client: fast-food chain running Adobe-driven, customer-targeted campaigns.</div>
+          <ul>
+            <li>Used <span class="hl">Adobe Campaign Classic</span> for targeted, personalized campaigns.</li>
+            <li>Streamlined execution with <span class="hl">Adobe Campaign Standard</span>.</li>
+            <li>Integrated ACC &amp; ACS via <span class="hl">APIs</span> for efficient data flow.</li>
+            <li>Optimized campaign strategy with cross-functional teams.</li>
+          </ul>
+          <div class="achievement"><span class="hl-warm">Achievement:</span> Built <span class="hl-warm">workflow automations</span> improving efficiency.</div>
+        </div>
+
+        <div class="card job-card">
+          <div class="tl-header"><h3>Senior IT Executive — ECO Appliances</h3><span class="tl-dates">Jan 2022 – Jun 2022</span></div>
+          <div class="tl-desc">Global home appliances sales &amp; services, reaching customers in the USA and worldwide.</div>
+          <ul>
+            <li>Managed campaigns, inventories &amp; websites.</li>
+            <li>Coordinated <span class="hl">IoT applications</span>; improved customer interfaces.</li>
+          </ul>
+        </div>
+
+        <div class="card job-card">
+          <div class="tl-header"><h3>Senior IT Coordinator — iCodex Publishing Solutions</h3><span class="tl-dates">Mar 2021 – Nov 2021</span></div>
+          <div class="tl-desc">Cloud-based workflow platform for the publishing industry.</div>
+          <ul>
+            <li>Managed data centre procurement &amp; asset inventory.</li>
+            <li>Resolved data centre issues via problem management.</li>
+            <li>Administered mail servers (Hosting Raja) &amp; Nulab Backlog.</li>
+            <li>Managed antivirus/firewall with <span class="hl">SOPHOS</span>.</li>
+            <li>Supported campaign management &amp; marketing initiatives.</li>
+          </ul>
+        </div>
+
+        <div class="card job-card">
+          <div class="tl-header"><h3>Software Engineer — Xangars Solution</h3><span class="tl-dates">Oct 2013 – Apr 2015</span></div>
+          <div class="tl-desc">Global IT solutions provider for the Insurtech sector.</div>
+          <ul>
+            <li><span class="hl">On-site project manager</span>: client interactions, SharePoint admin.</li>
+            <li><span class="hl">.NET development</span>; Power BI &amp; SQL administration.</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="achievements" class="card">
+      <h2 class="section-title">Key Achievements</h2>
+      <ul>
+        <li>Developed multiple <span class="hl-warm">API automations</span> enhancing tool productivity, returns, and efficiency (Capgemini, 2024–Present).</li>
+        <li>Built multiple <span class="hl-warm">workflow automation solutions</span> improving system functionality and productivity (Capgemini, 2022–2023).</li>
+      </ul>
+    </section>
+
+  </main>
+
+</div>
+
+</div>
+
+<footer>
+  <div><strong>Amit Umedali Lakhani</strong> · Adobe Developer (API Automation) · amit-umedali.lakhani@capgemini.com · 8087575200 · <a href="https://www.linkedin.com/in/lakhani-amit/" target="_blank" rel="noopener">linkedin.com/in/lakhani-amit</a></div>
+</footer>
+
+</body>
+</html>
